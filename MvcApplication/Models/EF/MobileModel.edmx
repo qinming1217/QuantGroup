@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LoanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BillData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="phoneListId" Type="int" />
+          <Property Name="time" Type="varchar" MaxLength="50" />
+          <Property Name="callPay" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FlowBill">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="phoneListId" Type="int" />
+          <Property Name="allPay" Type="varchar" MaxLength="50" />
+          <Property Name="time" Type="varchar" MaxLength="50" />
+          <Property Name="allFlow" Type="varchar" MaxLength="50" />
+          <Property Name="allTime" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FlowDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="phoneListId" Type="int" />
+          <Property Name="cTime" Type="varchar" MaxLength="50" />
+          <Property Name="tradeAddr" Type="nvarchar" MaxLength="50" />
+          <Property Name="netType" Type="varchar" MaxLength="50" />
+          <Property Name="tradeTime" Type="varchar" MaxLength="50" />
+          <Property Name="flow" Type="varchar" MaxLength="50" />
+          <Property Name="fee" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MessageData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="phoneListId" Type="int" />
+          <Property Name="sentTime" Type="varchar" MaxLength="50" />
+          <Property Name="sentAddr" Type="nvarchar" MaxLength="100" />
+          <Property Name="tradeWay" Type="varchar" MaxLength="50" />
+          <Property Name="receiverPhone" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PhoneList">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="idCard" Type="varchar" MaxLength="50" />
+          <Property Name="source" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="registerDate" Type="varchar" MaxLength="50" />
+          <Property Name="addr" Type="nvarchar" MaxLength="100" />
+          <Property Name="realName" Type="varchar" MaxLength="50" />
+          <Property Name="phoneRemain" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TelData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="phoneListId" Type="int" />
+          <Property Name="tradeTime" Type="varchar" MaxLength="50" />
+          <Property Name="cTime" Type="varchar" MaxLength="50" />
+          <Property Name="receiverPhone" Type="varchar" MaxLength="50" />
+          <Property Name="callType" Type="varchar" MaxLength="50" />
+          <Property Name="tradeAddr" Type="nvarchar" MaxLength="100" />
+          <Property Name="tradeType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="LoanModelStoreContainer">
+          <EntitySet Name="BillData" EntityType="Self.BillData" Schema="lhp" store:Type="Tables" />
+          <EntitySet Name="FlowBill" EntityType="Self.FlowBill" Schema="lhp" store:Type="Tables" />
+          <EntitySet Name="FlowDetail" EntityType="Self.FlowDetail" Schema="lhp" store:Type="Tables" />
+          <EntitySet Name="MessageData" EntityType="Self.MessageData" Schema="lhp" store:Type="Tables" />
+          <EntitySet Name="PhoneList" EntityType="Self.PhoneList" Schema="lhp" store:Type="Tables" />
+          <EntitySet Name="TelData" EntityType="Self.TelData" Schema="lhp" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LoanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BillData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="phoneListId" Type="Int32" />
+          <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="callPay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FlowBill">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="phoneListId" Type="Int32" />
+          <Property Name="allPay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="allFlow" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="allTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FlowDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="phoneListId" Type="Int32" />
+          <Property Name="cTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tradeAddr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="netType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tradeTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flow" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MessageData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="phoneListId" Type="Int32" />
+          <Property Name="sentTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sentAddr" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="tradeWay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="receiverPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PhoneList">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idCard" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="registerDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addr" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="realName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phoneRemain" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TelData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="phoneListId" Type="Int32" />
+          <Property Name="tradeTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="receiverPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="callType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tradeAddr" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="tradeType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="LoanEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BillData" EntityType="Self.BillData" />
+          <EntitySet Name="FlowBill" EntityType="Self.FlowBill" />
+          <EntitySet Name="FlowDetail" EntityType="Self.FlowDetail" />
+          <EntitySet Name="MessageData" EntityType="Self.MessageData" />
+          <EntitySet Name="PhoneList" EntityType="Self.PhoneList" />
+          <EntitySet Name="TelData" EntityType="Self.TelData" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LoanModelStoreContainer" CdmEntityContainer="LoanEntities">
+          <EntitySetMapping Name="BillData">
+            <EntityTypeMapping TypeName="LoanModel.BillData">
+              <MappingFragment StoreEntitySet="BillData">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="phoneListId" ColumnName="phoneListId" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="callPay" ColumnName="callPay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlowBill">
+            <EntityTypeMapping TypeName="LoanModel.FlowBill">
+              <MappingFragment StoreEntitySet="FlowBill">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="phoneListId" ColumnName="phoneListId" />
+                <ScalarProperty Name="allPay" ColumnName="allPay" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="allFlow" ColumnName="allFlow" />
+                <ScalarProperty Name="allTime" ColumnName="allTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlowDetail">
+            <EntityTypeMapping TypeName="LoanModel.FlowDetail">
+              <MappingFragment StoreEntitySet="FlowDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="phoneListId" ColumnName="phoneListId" />
+                <ScalarProperty Name="cTime" ColumnName="cTime" />
+                <ScalarProperty Name="tradeAddr" ColumnName="tradeAddr" />
+                <ScalarProperty Name="netType" ColumnName="netType" />
+                <ScalarProperty Name="tradeTime" ColumnName="tradeTime" />
+                <ScalarProperty Name="flow" ColumnName="flow" />
+                <ScalarProperty Name="fee" ColumnName="fee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageData">
+            <EntityTypeMapping TypeName="LoanModel.MessageData">
+              <MappingFragment StoreEntitySet="MessageData">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="phoneListId" ColumnName="phoneListId" />
+                <ScalarProperty Name="sentTime" ColumnName="sentTime" />
+                <ScalarProperty Name="sentAddr" ColumnName="sentAddr" />
+                <ScalarProperty Name="tradeWay" ColumnName="tradeWay" />
+                <ScalarProperty Name="receiverPhone" ColumnName="receiverPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhoneList">
+            <EntityTypeMapping TypeName="LoanModel.PhoneList">
+              <MappingFragment StoreEntitySet="PhoneList">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="idCard" ColumnName="idCard" />
+                <ScalarProperty Name="source" ColumnName="source" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="registerDate" ColumnName="registerDate" />
+                <ScalarProperty Name="addr" ColumnName="addr" />
+                <ScalarProperty Name="realName" ColumnName="realName" />
+                <ScalarProperty Name="phoneRemain" ColumnName="phoneRemain" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TelData">
+            <EntityTypeMapping TypeName="LoanModel.TelData">
+              <MappingFragment StoreEntitySet="TelData">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="phoneListId" ColumnName="phoneListId" />
+                <ScalarProperty Name="tradeTime" ColumnName="tradeTime" />
+                <ScalarProperty Name="cTime" ColumnName="cTime" />
+                <ScalarProperty Name="receiverPhone" ColumnName="receiverPhone" />
+                <ScalarProperty Name="callType" ColumnName="callType" />
+                <ScalarProperty Name="tradeAddr" ColumnName="tradeAddr" />
+                <ScalarProperty Name="tradeType" ColumnName="tradeType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

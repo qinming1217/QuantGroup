@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "Result";
+}
+<div class="navbar-wrapper">
+    <div class="container">
+        <div class="navwrapper">
+            <div class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="menuItem active"><a href="#personInfo"><h2>个人信息</h2></a></li>
+                            <li class="menuItem"><a href="#billData"><h2>月份账单</h2></a></li>
+                            <li class="menuItem"><a href="#messageData"><h2>短信详单</h2></a></li>
+                            <li class="menuItem"><a href="#telData"><h2>通话详单</h2></a></li>
+                            <li class="menuItem"><a href="#flowBill"><h2>上网流量账单</h2></a></li>
+                            <li class="menuItem"><a href="#flowDetail"><h2>上网流量详单</h2></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid divContainer" ng-controller="MobileCtrl" ng-init="InitBill()" style="width:85%">
+
+    <div class="row bg-warning text-center" style="height:auto;" id="personInfo">
+        <h3>个人信息</h3>
+    </div>
+    <div class="row bg-success divBody">
+        <div class="col-md-12 divRow">
+            <div class="col-md-4">真实姓名:{{PhoneList.realName}}</div>
+            <div class="col-md-4">身份证号:{{PhoneList.idCard}}</div>
+            <div class="col-md-4">入网日期:{{PhoneList.registerDate | DateFormat}}</div>
+        </div>
+        <div class="col-md-12 divRow">
+            <div class="col-md-4">手机号码:{{PhoneList.phone}}</div>
+            <div class="col-md-4">所属运营商:{{PhoneList.source}}</div>
+            <div class="col-md-4">手机号当前余额:{{PhoneList.phoneRemain }}</div>
+        </div>
+        <div class="col-md-12 divRow">
+            <div class="col-md-4">邮箱:{{PhoneList.email}}</div>
+            <div class="col-md-8">用户地址:{{PhoneList.addr}}</div>
+        </div>
+    </div>
+
+    <div class="row text-center bg-warning" style="height:auto;" id="billData">
+        <h3>月份账单</h3>
+    </div>
+    <div class="row bg-success text-center divBody">
+        <div class="col-md-12 bg-info">
+            <div class="col-md-6">消费金额</div>
+            <div class="col-md-6">所属月份</div>
+        </div>
+        <div class="col-md-12 bg-success" ng-repeat="billData in PhoneList.billData">
+            <div class="col-md-6">{{billData.callPay}}</div>
+            <div class="col-md-6">{{billData.time | MonthFormat}}</div>
+        </div>
+    </div>
+
+    <div class="row text-center bg-warning" style="height:auto;" id="messageData">
+        <h3>短信详单</h3>
+    </div>
+    <div class="row bg-success text-center divBody">
+        <div class="col-md-12 bg-info">
+            <div class="col-md-3">发送时间</div>
+            <div class="col-md-3">通信方式</div>
+            <div class="col-md-3">通信地点</div>
+            <div class="col-md-3">对方号码</div>
+        </div>
+        <div class="col-md-12 bg-success" ng-repeat="messageData in PhoneList.messageData">
+            <div class="col-md-3">{{messageData.sentTime | DateFormat}}</div>
+            <div class="col-md-3">{{messageData.tradeWay}}</div>
+            <div class="col-md-3">{{messageData.sentAddr}}</div>
+            <div class="col-md-3">{{messageData.receiverPhone}}</div>
+        </div>
+    </div>
+
+    <div class="row text-center bg-warning" style="height:auto;" id="telData">
+        <h3>通话详单</h3>
+    </div>
+    <div class="row bg-success text-center divBody">
+        <div class="col-md-12 bg-info">
+            <div class="col-md-2">通话起始时间</div>
+            <div class="col-md-2">呼叫类型</div>
+            <div class="col-md-2">通信地点</div>
+            <div class="col-md-2">对方号码</div>
+            <div class="col-md-2">通信时长（秒）</div>
+            <div class="col-md-2">通信类型</div>
+        </div>
+        <div class="col-md-12 bg-success" ng-repeat="telData in PhoneList.telData">
+            <div class="col-md-2">{{telData.cTime | DateFormat}}</div>
+            <div class="col-md-2">{{telData.callType}}</div>
+            <div class="col-md-2">{{telData.tradeAddr}}</div>
+            <div class="col-md-2">{{telData.receiverPhone}}</div>
+            <div class="col-md-2">{{telData.tradeTime}}</div>
+            <div class="col-md-2">{{telData.tradeType}}</div>
+        </div>
+    </div>
+
+    <div class="row text-center bg-warning" style="height:auto;" id="flowBill">
+        <h3>上网流量账单</h3>
+    </div>
+    <div class="row bg-success text-center divBody">
+        <div class="col-md-12 bg-info">
+            <div class="col-md-3">所属月份</div>
+            <div class="col-md-3">消费金额（元）</div>
+            <div class="col-md-3">上网总流量（KB）</div>
+            <div class="col-md-3">上网总时长（秒）</div>
+        </div>
+        <div class="col-md-12 bg-success" ng-repeat="flowBill in PhoneList.flowBill">
+            <div class="col-md-3">{{flowBill.time | DateFormat}}</div>
+            <div class="col-md-3">{{flowBill.allPay}}</div>
+            <div class="col-md-3">{{flowBill.allFlow}}</div>
+            <div class="col-md-3">{{flowBill.allTime}}</div>
+        </div>
+    </div>
+
+    <div class="row text-center bg-warning" style="height:auto;" id="flowDetail">
+        <h3>上网流量详单</h3>
+    </div>
+    <div class="row bg-success text-center divBody">
+        <div class="col-md-12 bg-info">
+            <div class="col-md-2">上网起始时间</div>
+            <div class="col-md-2">上网地点</div>
+            <div class="col-md-2">网络类型</div>
+            <div class="col-md-2">上网时长（秒）</div>
+            <div class="col-md-2">上网流量（KB）</div>
+            <div class="col-md-2">消费金额（元）</div>
+        </div>
+        <div class="col-md-12 bg-success" ng-repeat="flowDetail in PhoneList.flowDetail">
+            <div class="col-md-2">{{flowDetail.cTime | DateFormat}}</div>
+            <div class="col-md-2">{{flowDetail.tradeAddr}}</div>
+            <div class="col-md-2">{{flowDetail.netType}}</div>
+            <div class="col-md-2">{{flowDetail.tradeTime}}</div>
+            <div class="col-md-2">{{flowDetail.flow}}</div>
+            <div class="col-md-2">{{flowDetail.fee}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<defaultparametes>
+  <appid>0004</appid>
+  <userid>0004_123123</userid>
+  <mobile>
+    <url step="1">
+      http://openapi.quantgroup.cn/LKBClient/openapi/phone/pt_ued_phone_img.json
+    </url>
+    <url step="2">
+      http://openapi.quantgroup.cn/LKBClient/openapi/phone/pt_ued_phone_login.json
+    </url>
+    <url step="3">
+      http://openapi.quantgroup.cn/LKBClient/openapi/phone/pt_ued_phone_img2.json
+    </url>
+    <url step="4">
+      http://openapi.quantgroup.cn/LKBClient/openapi/phone/pt_ued_phone_sms.json
+    </url>
+    <url step="5">
+      http://openapi.quantgroup.cn/LKBClient/openapi/phone/pt_ued_phone_service.json
+    </url>
+    <url step="6">
+      http://openapi.quantgroup.cn/LKBClient/openapi/report/detail.json
+    </url>
+  </mobile>
+  <creditcard>
+
+  </creditcard>
+</defaultparametes>

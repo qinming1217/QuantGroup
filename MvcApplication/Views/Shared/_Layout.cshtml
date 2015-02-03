@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html ng-app="ngMobileApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/themes/base/css")
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/bootstrap/css/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/stickUp/css/stickUp.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/app/index.css")" />
+</head>
+<body>
+    @RenderBody()
+    <div id="loading" class="loadingContainer">
+        <div class="loading">正在提交数据...</div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap/js/bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/stickUp/stickUp.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular/angular.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular/angular-route.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular/controllers/mobile-controller.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/index.js")"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

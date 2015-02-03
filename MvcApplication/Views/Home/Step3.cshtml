@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Step3";
+}
+<form action="~/Home/Step3" method="post" id="form3">
+    <div class="container-fluid table-bordered" style="width: 60%; margin-top: 10px;">
+        <div class="form-group bg-info" style="height:auto">
+            <h3>Step3</h3>
+        </div>
+        <div class="form-group">
+            <img src="@Model" />
+        </div>
+        <div class="form-group">
+            <label for="txtTelNo">验证码</label>
+            <input type="text" name="txtAuthCode" class="form-control" placeholder="请输入验证码" />
+        </div>
+        <div class="form-group">
+            <label>@ViewBag.Message</label>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="form-control btn-info" value="重新获取验证码" onclick="submitAuthCode()" />
+        </div>
+        <div class="form-group">
+            <input type="submit" class="form-control btn-info" value="下一步"onclick="submitAuthCode()" />
+        </div>
+    </div>
+</form>
